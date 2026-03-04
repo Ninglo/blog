@@ -1,3 +1,8 @@
+---
+title: AI 编程工具怎么选？Codex 和 Claude Code 的本质区别
+date: 2026-02-19
+---
+
 Codex 跟 Claude Code 到底哪个好？
 我想大家各自都有自己的判断。
 
