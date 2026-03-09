@@ -1,6 +1,10 @@
 #!/bin/bash
 # Usage: ./publish.sh <path-to-article.md>
-# Copies article + any referenced images to quartz/content/, then commits and pushes.
+# Publish flow has two content steps:
+# 1) Copy the article + any referenced local images into `content/`
+# 2) Update `content/index.md` and place the newest article at the top
+#
+# After content is committed and pushed, the GitHub-connected site auto-deploys.
 # Example: ./publish.sh ~/my_docs/AI/新文章.md
 
 set -e
@@ -45,5 +49,5 @@ git commit -m "publish: $ARTICLE_NAME"
 git push
 
 echo ""
-echo "✓ Published. Cloudflare Pages will deploy in ~1 min."
+echo "✓ Published. Git push will trigger the site's auto-deploy."
 echo "  https://blog.jiujianian-dev-world.win"
