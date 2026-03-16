@@ -160,7 +160,7 @@ a {
 }
 
 .page {
-  max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
+  max-width: calc(#{map.get($breakpoints, desktop)} + 380px);
   margin: 0 auto;
   & article {
     & > h1 {
@@ -219,10 +219,10 @@ a {
     }
 
     & .sidebar {
-      gap: 1.2rem;
+      gap: 1.5rem;
       top: 0;
       box-sizing: border-box;
-      padding: $topSpacing 2rem 2rem 2rem;
+      padding: $topSpacing 1.5rem 2.5rem;
       display: flex;
       height: 100vh;
       position: sticky;

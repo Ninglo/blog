@@ -1,5 +1,29 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import type { Options as ExplorerOptions } from "./quartz/components/Explorer"
+
+const blogExplorerSort: ExplorerOptions["sortFn"] = (a, b) => {
+  if (a.isFolder !== b.isFolder) {
+    return a.isFolder ? 1 : -1
+  }
+
+  const publishedA = a.data?.published ?? 0
+  const publishedB = b.data?.published ?? 0
+
+  if (publishedA !== publishedB) {
+    return publishedB - publishedA
+  }
+
+  return a.displayName.localeCompare(b.displayName, undefined, {
+    numeric: true,
+    sensitivity: "base",
+  })
+}
+
+const blogExplorer = Component.Explorer({
+  title: "文章",
+  sortFn: blogExplorerSort,
+})
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -38,12 +62,12 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    blogExplorer,
   ],
   right: [
-    Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.Graph(),
   ],
 }
 
@@ -62,7 +86,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    blogExplorer,
   ],
   right: [],
 }

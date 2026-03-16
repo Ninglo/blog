@@ -4,10 +4,10 @@
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
-  min-height: 1.4rem;
+  min-height: 1.6rem;
   flex: 0 0.5 auto;
   &:has(button.toc-header.collapsed) {
-    flex: 0 1 1.4rem;
+    flex: 0 1 1.6rem;
   }
 }
 
@@ -41,18 +41,28 @@ button.toc-header {
 ul.toc-content.overflow {
   list-style: none;
   position: relative;
-  margin: 0.5rem 0;
+  margin: 0.85rem 0 0;
   padding: 0;
+  padding-right: 0.35rem;
   max-height: calc(100% - 2rem);
   overscroll-behavior: contain;
   list-style: none;
 
+  & > li {
+    margin: 0.28rem 0;
+  }
+
   & > li > a {
     color: var(--dark);
-    opacity: 0.35;
+    opacity: 0.45;
     transition:
       0.5s ease opacity,
       0.3s ease color;
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    padding: 0.12rem 0;
+
     &.in-view {
       opacity: 0.75;
     }
@@ -60,7 +70,7 @@ ul.toc-content.overflow {
 
   @for $i from 0 through 6 {
     & .depth-#{$i} {
-      padding-left: calc(1rem * #{$i});
+      padding-left: calc(0.75rem * #{$i});
     }
   }
 }
