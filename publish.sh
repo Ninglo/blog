@@ -203,4 +203,4 @@ git push
 
 echo ""
 echo "✓ Published. Git push will trigger the site's auto-deploy."
-echo "  https://blog.jiujianian-dev-world.win"
+echo "  https://blog.jiujianian.dev"
